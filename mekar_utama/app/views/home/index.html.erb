@@ -1,0 +1,26 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag  "jquery.bxslider" %>
+  <%= stylesheet_link_tag  "jquery.bxslider" %>
+<% end %>
+
+<div class="inner-content">
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.slider').bxSlider({
+        slideWidth: 200,
+        minSlides: 3,
+        maxSlides: 3,
+        moveSlides: 1,
+        slideMargin: 20,
+        pager: false
+      });
+    });
+  </script>
+
+
+  <div class="slider">
+    <% (1..5).each do |x| %>
+      <div class="slide"><%= image_tag "#{x}.jpg" %></div>
+    <% end %>
+  </div>
+</div>

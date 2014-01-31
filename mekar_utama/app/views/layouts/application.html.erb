@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MekarUtama</title>
+  <%= stylesheet_link_tag "light/light.css", "nivo-slider.css", "application",
+                          "jquery.mCustomScrollbar" %>
+  <%= javascript_include_tag "jquery-1.7.1.min.js", "application.js", 
+                             "jquery.nivo.slider.js", "jquery.mCustomScrollbar" %>
+  <%= yield :javascript_includes %>
+  <script type="text/javascript">
+    $(window).load(function() {
+        $('#slider').nivoSlider({
+          effect: 'fade',
+          pauseTime: 3000,
+          animSpeed: 400,
+          directionNav: false
+        });
+    });
+  </script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="title">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="container">
+    <div class="banner">
+      <div id="wrapper">
+        <div class="slider-wrapper theme-light">
+          <div id="slider" class="nivoSlider">
+            <% (1..4).each do |x| %>
+              <%= image_tag "nbanner_#{x}.jpg" %>
+            <% end %>
+            <%# @banners.each do |banner| %>
+              <%#= image_tag banner.banner_image.url(:big) %>
+            <%# end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      <div id="nav-menu">
+        <ul class='down-menu'>
+          <%= link_to raw("<li>Home</li>"),root_path  %>
+          <%= link_to raw("<li>Products</li>"),products_path %>
+          <li>News
+            <%#*<ul>%>
+              <%#= link_to raw("<li class='sub-menu'><span>Guilin</span></li>"),
+                          category_path('guilin') %>
+              <%#= link_to raw("<li class='sub-menu'><span>Summer Camp</span></li>"),
+                          category_path('summer_camp') %>
+              <%#= link_to raw("<li class='sub-menu'><span>Winter Camp</span></li>"),
+                          category_path('winter_camp') %>
+            <%#*</ul>%>
+          </li>
+          <%= link_to raw("<li>About Us</li>"),
+                      about_us_path %>
+          <%= link_to raw("<li class='border-right'>Contact Us</li>"),
+                      contact_us_path %>
+          <%#= link_to raw("<li class='border-right'>Learning</li>"),
+                      "#"  %>
+        </ul>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+  <div class="footer">
+    Copyright © 2014, mekar-utama.com - all rights reserved
+  </div>
+</body>
+</html>

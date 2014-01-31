@@ -1,0 +1,17 @@
+<div class="inner-content">
+  <div class="inner-content-title">Products</div>
+  <div class="inner-content-info">
+    <% (0..5).each do |x| %>
+    <div class="product-box">
+      <div class="product-image">
+        <%= image_tag "p_#{x+1}.jpg", :size => "160x100" %>
+      </div>
+      <div class="product-info">
+        <%= link_to "Pensil Grafit Hex Cedar", product_path(1) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="paginate">« previous | 1 | 2 | next »
+  </div>
+</div>
