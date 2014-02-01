@@ -15,7 +15,7 @@ MekarUtama::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true
@@ -60,6 +60,22 @@ MekarUtama::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.middleware.use ExceptionNotifier,
+      :email_prefix => "[Error]",
+      :sender_address => %{"notifier" <notifier@example.com>},
+      :exception_recipients => %w{martin.me15@yahoo.com}
+  config.action_mailer.default_url_options = { :host => 'localhost:80' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandbox1457.mailgun.org",
+    :user_name => "postmaster@sandbox1457.mailgun.org",
+    :password => "9yv7w5v115s2"
+  }
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
