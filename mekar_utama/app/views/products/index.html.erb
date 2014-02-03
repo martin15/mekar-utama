@@ -4,7 +4,7 @@
     <% (0..5).each do |x| %>
     <div class="product-box">
       <div class="product-image">
-        <%= image_tag "p_#{x+1}.jpg", :size => "160x100" %>
+        <%= link_to (image_tag "p_#{x+1}.jpg", :size => "160x100"), product_path(1) %>
       </div>
       <div class="product-info">
         <%= link_to "Pensil Grafit Hex Cedar", product_path(1) %>

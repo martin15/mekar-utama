@@ -1,0 +1,51 @@
+<div class="inner-content">
+  <div class="inner-content-title">News</div>
+  <div class="inner-content-info">
+    <div class="news">
+      <div class="news-image">
+        <%= link_to (image_tag "3.jpg"), show_news_path(1) %>
+      </div>
+      <div class="news-content">
+        <div class="news-title">
+          <%= link_to "Berita baru", show_news_path(1) %>
+        </div>
+        <div class="news-date">
+          <i>uploaded at : 1 February 2014</i>
+        </div>
+        <div class="news-short-content">
+          Larre Ipsum  is simply dummy text of the printing
+          and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled
+          it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting
+          <%= link_to "Read more >>", show_news_path(1) %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="news">
+      <div class="news-image">
+        <%= image_tag "4.jpg" %>
+      </div>
+      <div class="news-content">
+        <div class="news-title">
+          <%= link_to "Berita baru", "#" %>
+        </div>
+        <div class="news-date">
+          <i>uploaded at : 1 February 2014</i>
+        </div>
+        <div class="news-short-content">
+          Larre Ipsum  is simply dummy text of the printing
+          and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s,
+          when an unknown printer took a galley of type and scrambled
+          it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting
+          <%= link_to "Read more >>" %>
+        </div>
+      </div>
+    </div>
+    <div class="paginate">« previous | 1 | 2 | next »</div>
+  </div>
+</div>

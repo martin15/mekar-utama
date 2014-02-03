@@ -4,6 +4,8 @@ MekarUtama::Application.routes.draw do
   resources :products, :only => [:index, :show]
   get "contact_us" => "contact_us#new", :as => "contact_us"
   post "contact_us" => "contact_us#create", :as => "contact_us"
+  get "news" => "news#index", :as => "news"
+  get "news/:id" => "news#show", :as => "show_news"
   
   root :to => 'home#index'
 

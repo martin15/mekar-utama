@@ -23,4 +23,51 @@
       <div class="slide"><%= image_tag "#{x}.jpg" %></div>
     <% end %>
   </div>
+  <div class="news" style="margin-top:20px;border-top:2px solid #8E8778;padding-top:20px;">
+    <div class="news-image">
+      <%= link_to (image_tag "3.jpg"), show_news_path(1) %>
+    </div>
+    <div class="news-content">
+      <div class="news-title">
+        <%= link_to "Berita baru", show_news_path(1) %>
+      </div>
+      <div class="news-date">
+        <i>uploaded at : 1 February 2014</i>
+      </div>
+      <div class="news-short-content">
+        Larre Ipsum  is simply dummy text of the printing
+        and typesetting industry. Lorem Ipsum has been the
+        industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled
+        it to make a type specimen book. It has survived not only
+        five centuries, but also the leap into electronic typesetting
+        <%= link_to "Read more >>", show_news_path(1) %>
+      </div>
+    </div>
+  </div>
+  <div class="social-networking">
+    <div class="fb">
+      <%= link_to (image_tag "facebook_logo.png"), "#" %>
+    </div>
+    <div class="twitter">
+      <%= link_to (image_tag "twitter_logo.png"), "#" %>
+      
+
+    </div>
+      <%= link_to "new_bg_1", "#", :onclick => "change_bg('new_bg_1.jpg')" %>&nbsp;&nbsp;
+      <%= link_to "new_bg_2", "#", :onclick => "change_bg('new_bg_2.jpg')" %>&nbsp;&nbsp;
+      <%= link_to "new_bg_3", "#", :onclick => "change_bg('new_bg_3.jpg')" %>&nbsp;&nbsp;
+      <%= link_to "new_bg_4", "#", :onclick => "change_bg('new_bg_4.jpg')" %>&nbsp;&nbsp;
+      <%= link_to "new_bg_5", "#", :onclick => "change_bg('new_bg_5.jpg')" %>
+    <div class="counter">
+      Total Visitor : xxxxx
+    </div>
+  </div>
 </div>
+
+  <script type="text/javascript">
+      function change_bg(id){
+        $("body").css("background", "url('../assets/"+ id +"')");
+        //$("body").style.backgroundImage = 'url(' + id + ')';
+      }
+  </script>

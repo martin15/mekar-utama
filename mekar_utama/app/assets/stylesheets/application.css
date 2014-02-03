@@ -32,7 +32,7 @@ blockquote, q { quotes: "" ""; }
 a img, a:hover img { border:none; }
 h1,h2,h3,h4,h5,h6 { margin:0px 0px 10px 0px; padding:0px;
                     font-weight:normal; font-family: Cabin-Regular, Verdana,Arial,Helvetica,sans-serif; }
-a { text-decoration:none; cursor:pointer; outline:none;color:#b8925c;}
+a { text-decoration:none; cursor:pointer; outline:none;color:#ECC352;}
 a:hover { text-decoration:none;color: white }
 .clear { clear:both; margin:0px; padding:0px; height:0px; line-height:0; font-size:0; }
 .left { float:left; width:auto; border:none; }
@@ -50,11 +50,12 @@ h3 {font-size: 20px;}
 p { font-size: 13px; line-height: 1.6em; margin-bottom: 13px;}
 body {
   font: 12px Cabin-Regular, Verdana, arial, sans-serif;
-  background: url("../assets/bg_wood_.jpg") no-repeat scroll #000;
+  background: url("../assets/bg_wood.jpg") no-repeat scroll #000;
   width: 1200px; margin: 0 auto;
   height: 650px;
   background-color: #000;
-  color: #b8925c;
+  color: #ECC352;
+/*  color: #ECC352;*/
 }
 
 @font-face {
@@ -112,7 +113,7 @@ body {
   height:40px;
   width: 670px;
   padding-left:50px;
-  border-bottom: 1px solid #b8925c;
+  border-bottom: 1px solid #ECC352;
 }
 #nav-menu ul li {
   position:relative;
@@ -121,12 +122,12 @@ body {
   width: 110px;
   text-align: center;
   padding: 5px 0;
-  color: #b8925c;
-  border-left: 1px solid #b8925c;
+  color: #ECC352;
+  border-left: 1px solid #ECC352;
 }
 
 .border-right{
-  border-right: 1px solid #b8925c;
+  border-right: 1px solid #ECC352;
 }
 
 #nav-menu ul li.sub-menu {
@@ -191,7 +192,7 @@ body {
   width: 180px;
   height: 160px;
   margin: 0 20px 15px 0;
-  border: 1px solid #b8925c;
+  border: 1px solid #ECC352;
   float: left;
 }
 
@@ -225,7 +226,7 @@ body {
   width: 320px;
   height: 240px;
   margin: 0 10px 10px 0;
-  border: 1px solid #b8925c;
+  border: 1px solid #ECC352;
   float: left;
 }
 
@@ -233,7 +234,7 @@ body {
   width: 100px;
   height: 75px;
   margin: 0 7px 10px 0;
-  border: 1px solid #b8925c;
+  border: 1px solid #ECC352;
   float: left;
 }
 
@@ -298,31 +299,121 @@ body {
 }
 
 .contact-us-input-box input[type="text"] {
-    background-color: #241902;
-    border: 1px solid #8E8778;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
-    height: 25px;
+  background-color: #241902;
+  border: 1px solid #8E8778;
+  border-radius: 5px 5px 5px 5px;
+  color: #FFFFFF;
+  height: 25px;
 }
 
 .contact-us-input-box textarea {
-    background-color: #241902;
-    border: 1px solid #8E8778;
-    border-radius: 5px 5px 5px 5px;
-    color: #FFFFFF;
+  background-color: #241902;
+  border: 1px solid #8E8778;
+  border-radius: 5px 5px 5px 5px;
+  color: #FFFFFF;
 }
 
 .contact-us-input-box input[type="submit"] {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: medium none;
-    color: #FFFFFF;
-    font-size: 19px;
-    font-weight: bold;
-    margin: 10px 15px 0 0;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+  border: medium none;
+  color: #FFFFFF;
+  font-size: 19px;
+  font-weight: bold;
+  margin: 10px 15px 0 0;
 }
+
+.news{
+  width: 740px;
+  height: 150px;
+  float: left;
+  margin-top: 10px;
+  border-bottom: 2px solid #8E8778;
+}
+
+.news-image{
+  width: 200px;
+  height: 140px;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
+.news-content{
+  width: 530px;
+  height: 150px;
+  float: left;
+}
+
+.news-content .news-title{
+  width: 540px;
+  float: left;
+  font-size:25px;
+}
+
+.news-content .news-date{
+  width: 540px;
+  float: left;
+  font-size:12px;
+}
+
+.news-content .news-short-content{
+  width: 540px;
+  float: left;
+  margin-top: 5px;
+}
+
+.news-content .news-short-content a{
+  width: 530px;
+  float: left;
+  text-align: right;
+}
+
+.news-detail-image{
+  width: 340px;
+  height: 260px;
+  float: left;
+  margin: 0 15px 15px 0;
+  padding: 10px;
+  border: 1px solid #B8925C;
+}
+
+.news-detail-content{
+  position: relative;
+}
+
+.news-detail-content .news-detail-title{
+  font-size:25px;
+}
+
+.news-detail-content .news-detail-date{
+  font-size:12px;
+  margin-bottom: 10px;
+}
+
+
+
+.social-networking{
+  width: 740px;
+  height: 100px;
+  float: left;
+  margin-top: 20px;
+}
+
+.social-networking .fb, .social-networking .twitter{
+  float: left;
+  width: 40px;
+}
+
+.social-networking .counter{
+  float: right;
+  width: 300px;
+  font-size: 18px;
+  text-align: right;
+}
+
+
 
 .slider .slide{
   padding: 5px;
-  border: 1px solid #B8925C;
+  border: 1px solid #ECC352;
 }
 
