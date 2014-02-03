@@ -1,5 +1,7 @@
 MekarUtama::Application.routes.draw do
   
+  mount Ckeditor::Engine => '/ckeditor'
+
   get "about_us" => "about_us#index"
   resources :products, :only => [:index, :show]
   get "contact_us" => "contact_us#new", :as => "contact_us"
