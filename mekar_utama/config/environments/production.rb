@@ -74,7 +74,9 @@ MekarUtama::Application.configure do
     :port => 587,
     :domain => "sandbox1457.mailgun.org",
     :user_name => "postmaster@sandbox1457.mailgun.org",
-    :password => "9yv7w5v115s2"
+    :password => "9yv7w5v115s2",
+    :openssl_verify_mode  => 'none',
+    :enable_starttls_auto => false
   }
 
   # Log the query plan for queries taking more than this (works
