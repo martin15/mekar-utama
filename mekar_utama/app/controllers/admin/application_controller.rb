@@ -1,6 +1,6 @@
 class Admin::ApplicationController < ApplicationController
   protect_from_forgery
-  #before_filter :require_login
+  before_filter :require_login
   layout 'admin'
   helper_method :current_user
 

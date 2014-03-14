@@ -15,7 +15,7 @@ gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'exception_notification', '2.4.1'
 gem 'dynamic_form'
 gem 'permalink_fu'
-gem 'impressionist'
+#gem 'impressionist'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
 gem 'nokogiri', '~> 1.5.10'
 
