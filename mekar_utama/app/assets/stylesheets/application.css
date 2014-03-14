@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
  */
 
 
@@ -98,7 +97,7 @@ body {
 }
 
 .footer{
-  margin-top: 20px;
+  margin: 20px 0 30px 0;
   text-align: center;
   width: 1200px;
   font-size: 12px;
@@ -113,7 +112,7 @@ body {
   height:40px;
   width: 670px;
   padding-left:50px;
-  border-bottom: 1px solid #ECC352;
+/*  border-bottom: 1px solid #ECC352;*/
 }
 #nav-menu ul li {
   position:relative;
@@ -123,11 +122,21 @@ body {
   text-align: center;
   padding: 5px 0;
   color: #ECC352;
+  z-index: 10000;
+}
+
+#nav-menu .menu-border{
   border-left: 1px solid #ECC352;
+  width: 110px;
+  float: left;
+  height: 30px;
 }
 
 .border-right{
   border-right: 1px solid #ECC352;
+  width: 110px;
+  float: left;
+  height: 20px;
 }
 
 #nav-menu ul li.sub-menu {
@@ -139,7 +148,7 @@ body {
 	margin: 0 1em;
 }
 
-#nav-menu ul li:hover, #nav-menu ul li:hover a, #nav-menu ul li a:hover {
+#nav-menu ul li:hover, #nav-menu ul li:hover a {
   background-color: #5c2812;
   color: #fafafa;
 }
@@ -164,6 +173,13 @@ body {
 
 #nav-menu ul ul li{	float: none !important;	border-right: 0px !important;}
 
+.subtext{
+  width: 110px;
+}
+
+#nav-menu ul li a:hover{
+  color: #ECC352;
+}
 /********** END NAV MENU ***************************/
 
 
@@ -253,6 +269,24 @@ body {
   margin-top:10px;
 }
 
+.contact-left{
+  float: left;
+  width: 310px;
+}
+
+.contact-right{
+  float: left;
+  width: 390px;
+}
+
+.contact-title{
+  float: left;
+  width: 350px;
+  height: 50px;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
 .company-information{
   float: left;
   width: 350px;
@@ -274,11 +308,11 @@ body {
   height:40px;
   margin:0 0 10px 0;
 }
-
+/*
 .contact-us{
   float: left;
   width: 390px;
-}
+}*/
 
 .field{
   float: left;
@@ -288,12 +322,23 @@ body {
 }
 
 .contact-us-input-title{
-  width: 95px;
+  width: 105px;
   margin-right: 5px;
   float: left;
 }
 
 .contact-us-input-box{
+  width: 280px;
+  float: left;
+}
+
+.input-title{
+  width: 95px;
+  margin-right: 5px;
+  float: left;
+}
+
+.input-box{
   width: 290px;
   float: left;
 }
@@ -410,10 +455,59 @@ body {
   text-align: right;
 }
 
-
-
 .slider .slide{
   padding: 5px;
   border: 1px solid #ECC352;
 }
 
+.notice{
+  color: RoyalBlue;
+  font-size: 15px;
+  margin-top:10px;
+}
+
+.error, .alert{
+  color: red;
+  font-size: 15px;
+  margin-top:10px;
+}
+
+#error_explanation, #errorExplanation {
+  width: 500px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 30px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2, #errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 18px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation p, #errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding-top:15px;
+}
+
+#error_explanation ul, #errorExplanation ul{
+  font-size: 15px;
+  list-style: square inside;
+  color:#000000;
+  margin-top:10px;
+}
+
+#error_explanation ul li, #errorExplanation ul li {
+  margin-left:15px;
+}
+
+.field_with_errors {
+  border: 1px solid  #ff3333;
+}

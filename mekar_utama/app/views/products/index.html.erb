@@ -1,17 +1,23 @@
 <div class="inner-content">
-  <div class="inner-content-title">Products</div>
+  <div class="inner-content-title">Products <%= @category.name.titleize %></div>
   <div class="inner-content-info">
-    <% (0..5).each do |x| %>
+    <% @products.each do |product| %>
     <div class="product-box">
       <div class="product-image">
-        <%= link_to (image_tag "p_#{x+1}.jpg", :size => "160x100"), product_path(1) %>
+        <%= link_to (image_tag product.primary_image.product_image.url(:medium),
+                               :size => "160x100"),
+                     product_path(:name => @category.name, :id => product.id) %>
       </div>
       <div class="product-info">
-        <%= link_to "Pensil Grafit Hex Cedar", product_path(1) %>
+        <%= link_to product.name,
+            product_path(:name => @category.name, :id => product.id)%>
       </div>
     </div>
     <% end %>
   </div>
-  <div class="paginate">« previous | 1 | 2 | next »
+  <div class="paginate">
+    <%= will_paginate @products, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %>
   </div>
 </div>

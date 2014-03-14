@@ -1,0 +1,42 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "/assets/ckeditor/ckeditor" %>
+<% end %>
+
+<div class="field">
+  <div class="input-title left"><%= f.label :name, "Name * :" %></div>
+  <div class="input-box left"><%= f.text_field :name %></div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left"><%= f.label :price, "Price * :" %></div>
+  <div class="input-box left"><%= f.text_field :price %></div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left"><%= f.label :code, "Code :" %></div>
+  <div class="input-box left"><%= f.text_field :code %></div>
+</div>
+<%= f.fields_for :product_images do |pi| %>
+  <%= pi.hidden_field :is_primary, :value => true %>
+  <div class="field clear-margin">
+    <div class="input-title left"><%= pi.label :product_image, "Primary Image * :" %></div>
+    <div class="input-box left"><%= pi.file_field :product_image %></div>
+  </div>
+  <div class="field clear-margin">
+    <div class="input-title left">&nbsp;</div>
+    <div class="input-box left small-font">
+      Input image with size 400x300 (width x height)
+    </div>
+  </div>
+<% end %>
+<div class="field clear-margin">
+  <div class="input-title left"><%= f.label :category_id, "Category * :" %></div>
+  <div class="input-box left"><%= f.select :category_id, @category_list %></div>
+</div>
+<div class="field">
+  <div class="input-title left"><%= f.label :description, "Description :" %></div>
+  <div class="input-box left">&nbsp;</div>
+</div>
+<div class="field" style="height: 440px;">
+  <%= f.cktext_area :description,
+                    :ckeditor => {:uiColor => "#F5CDFA", :toolbar => "Basic",
+                                  :width=>'850px', :height=>'250px'}  %>
+</div>

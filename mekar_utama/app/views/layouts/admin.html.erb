@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MekarUtama</title>
+  <%= stylesheet_link_tag  "application","admin" %>
+  <%= javascript_include_tag "jquery-1.7.1.min.js", "application.js" %>
+  <%= yield :javascript_includes %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="admin-body">
+  <div class="title">
+    <%= image_tag "logo.png" %>
+  </div>
+  <div class="admin-container">
+    <div class="admin-main-content">
+      <div id="nav-menu" style="width:900px">
+        <ul class='down-menu'>
+          <span class='menu-border'>
+            <%= link_to raw("<li>Home</li>"),root_path %>
+          </span>
+          <span class='menu-border'>
+            <%= link_to raw("<li>Products</li>"),admin_products_path %>
+          </span>
+          <span class='menu-border'>
+            <%= link_to raw("<li>News</li>"),admin_news_index_path %>
+          </span>
+          <span class='menu-border'>
+            <%= link_to raw("<li>Banners</li>"),admin_news_index_path %>
+          </span>
+          <span class='menu-border'>
+            <%= link_to raw("<li>About Us</li>"), admin_edit_setting_path("about_us") %>
+          </span>
+          <span class='menu-border'>
+            <%= link_to raw("<li class='border-right'>Contact Us</li>"),
+                      admin_edit_setting_path("contact_us") %></span>
+        </ul>
+      </div>
+      <%= yield %>
+    </div>
+  </div>
+  <div class="footer left">
+    Copyright © 2014, mekar-utama.com - all rights reserved
+  </div>
+</body>
+</html>

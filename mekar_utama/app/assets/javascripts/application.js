@@ -12,4 +12,27 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+
+$(document).ready(function(){
+	//Remove outline from links
+	$("a").click(function(){
+		$(this).blur();
+	});
+
+	//When mouse rolls over
+	$("li.menu-product").mouseover(function(){
+		$("span.sub-menu").show().animate({height:'70px'},{queue:false, duration:600, easing: 'easeOutBounce'})
+	});
+
+	//When mouse is removed
+	$("li.menu-product").mouseleave(function(){
+		$("span.sub-menu").stop().animate(
+      {height:'20px'},{queue:false, duration:600, easing: 'easeOutBounce'//,
+      //complete: function() {$("span.sub-menu").hide()}
+      }
+    )
+		$("span.sub-menu").hide( "fast" );
+	});
+
+});
+

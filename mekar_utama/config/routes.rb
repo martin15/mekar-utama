@@ -3,12 +3,36 @@ MekarUtama::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get "about_us" => "about_us#index"
-  resources :products, :only => [:index, :show]
+  get "products/:name" => "products#index", :as => "products"
+  get "products/:name/:id" => "products#show", :as => "product"
   get "contact_us" => "contact_us#new", :as => "contact_us"
   post "contact_us" => "contact_us#create", :as => "contact_us"
   get "news" => "news#index", :as => "news"
   get "news/:id" => "news#show", :as => "show_news"
-  
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+  resources :sessions, :only => [:create]
+
+  match "admin" => "admin/dashboard#index", :as => "admin"
+  post "admin/dashboard/change_password"
+
+ namespace :admin do
+    resources :banners
+    resources :features
+    resources :news, :only => [:index, :new, :create, :edit, :update, :destroy]
+    resources :products do
+      resources :product_images, :only => [:create, :edit, :update, :destroy] do
+        member do
+          get 'set_primary'
+        end
+      end
+    end
+    get "settings/:name/edit" => "settings#edit", :as => "edit_setting"
+    put "settings/:name" => "settings#update", :as => "update_setting"
+
+    
+  end
+
   root :to => 'home#index'
 
   # The priority is based upon order of creation:

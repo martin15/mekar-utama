@@ -5,7 +5,8 @@
   <%= stylesheet_link_tag "light/light.css", "nivo-slider.css", "application",
                           "jquery.mCustomScrollbar" %>
   <%= javascript_include_tag "jquery-1.7.1.min.js", "application.js", 
-                             "jquery.nivo.slider.js", "jquery.mCustomScrollbar" %>
+                             "jquery.nivo.slider.js", "jquery.mCustomScrollbar",
+                             "jquery.easing.1.3" %>
   <%= yield :javascript_includes %>
   <script type="text/javascript">
     $(window).load(function() {
@@ -42,25 +43,23 @@
     <div class="main-content">
       <div id="nav-menu">
         <ul class='down-menu'>
-          <%= link_to raw("<li>Home</li>"),root_path  %>
-          <%= link_to raw("<li>Products</li>"),products_path %>
-          <%= link_to raw("<li>News</li>"),news_path %>
-          <%#*<li>News%>
-            <%#*<ul>%>
-              <%#= link_to raw("<li class='sub-menu'><span>Guilin</span></li>"),
-                          category_path('guilin') %>
-              <%#= link_to raw("<li class='sub-menu'><span>Summer Camp</span></li>"),
-                          category_path('summer_camp') %>
-              <%#= link_to raw("<li class='sub-menu'><span>Winter Camp</span></li>"),
-                          category_path('winter_camp') %>
-            <%#*</ul>%>
-          </li>
-          <%= link_to raw("<li>About Us</li>"),
-                      about_us_path %>
-          <%= link_to raw("<li class='border-right'>Contact Us</li>"),
+          <span class='menu-border'><%= link_to raw("<li>Home</li>"),root_path  %></span>
+          <span class='menu-border'>
+              <li class='menu-product' style="cursor:pointer">
+                <p>Products</p>
+                <span style='display:none' class='sub-menu'>
+                  <%= link_to raw("<p class='subtext'>Pencil</p>"), products_path("pencil") %>
+                  <%= link_to raw("<p class='subtext'>Brodier</p>"), products_path("brodier") %>
+                </span>
+              </li>
+          </span>
+          <span class='menu-border'><%= link_to raw("<li>News</li>"),news_path %></span>
+          <span class='menu-border'><%= link_to raw("<li>About Us</li>"),
+                      about_us_path %></span>
+          <span class='menu-border'>
+            <%= link_to raw("<li class='border-right'>Contact Us</li>"),
                       contact_us_path %>
-          <%#= link_to raw("<li class='border-right'>Learning</li>"),
-                      "#"  %>
+          </span>
         </ul>
       </div>
       <%= yield %>
