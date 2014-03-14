@@ -17,6 +17,7 @@ gem 'dynamic_form'
 gem 'permalink_fu'
 gem 'impressionist'
 gem "galetahub-simple_captcha", :require => "simple_captcha"
+gem 'nokogiri', '~> 1.5.10'
 
 # Gems used only for assets and not required
 # in production environments by default.
