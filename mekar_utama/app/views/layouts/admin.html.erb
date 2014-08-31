@@ -7,39 +7,30 @@
   <%= yield :javascript_includes %>
   <%= csrf_meta_tags %>
 </head>
-<body class="admin-body">
-  <div class="title">
-    <%= image_tag "logo.png" %>
-  </div>
-  <div class="admin-container">
-    <div class="admin-main-content">
-      <div id="nav-menu" style="width:900px">
-        <ul class='down-menu'>
-          <span class='menu-border'>
-            <%= link_to raw("<li>Home</li>"),root_path %>
-          </span>
-          <span class='menu-border'>
-            <%= link_to raw("<li>Products</li>"),admin_products_path %>
-          </span>
-          <span class='menu-border'>
-            <%= link_to raw("<li>News</li>"),admin_news_index_path %>
-          </span>
-          <span class='menu-border'>
-            <%= link_to raw("<li>Banners</li>"),admin_news_index_path %>
-          </span>
-          <span class='menu-border'>
-            <%= link_to raw("<li>About Us</li>"), admin_edit_setting_path("about_us") %>
-          </span>
-          <span class='menu-border'>
-            <%= link_to raw("<li class='border-right'>Contact Us</li>"),
-                      admin_edit_setting_path("contact_us") %></span>
+<body>
+  <div id="container">
+    <div class="header">
+      <div class="logo">
+        <%= link_to (image_tag "logo.png"), root_path %>
+      </div>
+      <div id="nav-menu">
+        <ul class="first admin-nav-menu">
+          <li class="first-child"><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Products", admin_products_path %></li>
+          <li><%= link_to "About Us", admin_edit_setting_path("about_us") %></li>
+          <li><%= link_to "Banners", admin_banners_path %></li>
+          <li><%= link_to "CLients", admin_clients_path %></li>
+          <li><%= link_to "Contact Us", admin_edit_setting_path("contact_us") %></li>
         </ul>
       </div>
-      <%= yield %>
     </div>
-  </div>
-  <div class="footer left">
-    Copyright © 2014, mekar-utama.com - all rights reserved
+    <div class="content">
+        <%= yield %>
+    <div class="clear"></div>
+    </div>
+    <div class="footer">
+      <div class="copyright">Copyright © 2014, mekar-utama.com - all rights reserved</div>
+    </div>
   </div>
 </body>
 </html>

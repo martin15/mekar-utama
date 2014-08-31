@@ -3,6 +3,7 @@ MekarUtama::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   get "about_us" => "about_us#index"
+  get "clients" => "clients#index"
   get "products/:name" => "products#index", :as => "products"
   get "products/:name/:id" => "products#show", :as => "product"
   get "contact_us" => "contact_us#new", :as => "contact_us"
@@ -18,12 +19,14 @@ MekarUtama::Application.routes.draw do
 
  namespace :admin do
     resources :banners
+    resources :clients
     resources :features
     resources :news, :only => [:index, :new, :create, :edit, :update, :destroy]
     resources :products do
       resources :product_images, :only => [:create, :edit, :update, :destroy] do
         member do
           get 'set_primary'
+          get 'set_best_seller'
         end
       end
     end

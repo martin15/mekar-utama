@@ -44,6 +44,10 @@
   height: 130px;
 }
 
+.with-banner-pic{
+  height: 190px;
+}
+
 .border {
   border-bottom: 1px #ECC352 solid;
   height:25px;
@@ -56,6 +60,7 @@
 
 .admin-row .no, .admin-row .image, .admin-row .news-title, .admin-row .content,
 .admin-row .action, .admin-row .product-image, .admin-row .product-name,
+.admin-row .client-name, .admin-row .banner-image,
 .admin-row .product-price, .admin-row .product-category, .admin-row .product-action {
   text-align: center;
   float: left;
@@ -65,6 +70,10 @@
 
 .admin-row .no{
   width: 35px;
+}
+
+.admin-row .banner-image{
+  width: 500px;
 }
 
 .admin-row .image{
@@ -80,7 +89,7 @@
   width: 200px;
 }
 
-.admin-row .content{
+.admin-row .content, .admin-row .client-name{
   width: 300px;
 }
 
@@ -120,22 +129,22 @@
 
 .admin-product-images{
   width: 210px;
-  height: 200px;
+  height: 230px;
   float: left;
-  margin: 0 15px 20px 0;
+  margin: 0 13px 20px 0;
   border: 1px solid #ECC352;
 }
 
 .admin-product-images .pic{
-  width: 210px;
+  width: 200px;
   height: 160px;
   padding: 5px;
   float: left;
 }
 
 .admin-product-images .action{
-  width: 210px;
-  height: 30px;
+  width: 200px;
+  height: 55px;
   padding: 5px;
   float: left;
 }
@@ -144,4 +153,17 @@
   margin: 0 6px;
 }
 
+.admin-nav-menu li{
+  width: 149px!important;
+}
 
+.best-seller{
+  width: 150px;
+  height: 25px;
+  margin: 11px 0 0 5px !important;
+  float: left;
+}
+
+.best-seller span{
+  margin: -5px 0 0 5px!important;
+}

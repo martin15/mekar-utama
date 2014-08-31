@@ -5,8 +5,8 @@
 </style>
 
 <div class="inner-content">
+  <div class="inner-content-title">Contact Us</div>
   <div class="contact-left">
-    <div class="contact-title">Contact Us</div>
     <div class="company-information">
       <%= raw @contact_us_info.content %>
       <div class="ym">
@@ -20,13 +20,13 @@
       <div class="gtalk">
         Google Talk: rimatan787@gmail.com</div>
     </div>
-
   </div>
+
   <div class="contact-right">
     <div class="contact-us">
       <%= form_for @contact_us, :url => contact_us_path,
                   :html => {:method => :post} do |f| %>
-        <div class="field" style="height: 80px;">
+        <div class="field">
           <% flash.each do |key, value| %>
             <p class='<%= key %>'><%= raw value %></p><br />
           <% end %>
@@ -47,7 +47,7 @@
         <div class="field" style="height: 170px;">
           <div class="contact-us-input-title"><%= f.label :contect, "Question* :" %></div>
           <div class="contact-us-input-box">
-            <%= f.text_area :content, :size => "36x10" %>
+            <%= f.text_area :content %>
           </div>
         </div>
         <div class="field">

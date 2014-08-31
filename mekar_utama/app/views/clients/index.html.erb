@@ -1,0 +1,10 @@
+<div class="inner-content">
+  <div class="inner-content-title">Our Clients</div>
+  <div class="inner-content-info">
+    <ul class="list-client">
+      <% @clients.each do |client| %>
+        <li><%= client.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

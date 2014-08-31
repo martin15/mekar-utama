@@ -1,8 +1,8 @@
 class Admin::ProductImagesController < Admin::ApplicationController
   before_filter :find_product, :only => [:create, :show, :destroy,
-                                          :edit, :update, :set_primary]
+                                          :edit, :update, :set_primary, :set_best_seller]
   before_filter :find_product_image, :only => [:show, :destroy, :edit,
-                                               :update, :set_primary]
+                                               :update, :set_primary, :set_best_seller]
 
   def create
     @product_image = ProductImage.new(:product_image => params[:product][:product_image])
@@ -40,6 +40,18 @@ class Admin::ProductImagesController < Admin::ApplicationController
       flash[:error] = "Product Image failed to set as Primary Image"
     end
     redirect_to admin_product_path(@product.id)
+  end
+
+  def set_best_seller
+    best = params[:is_best_seller] == "true" ? true : false
+    respond_to do |format|
+      if @product_image.update_attribute(:is_best_seller, best)
+        format.html { redirect_to(admin_product_path(@product.id),
+                      :notice => 'Image was successfully updated.') }
+        format.js
+      end
+    end
+
   end
 
   private

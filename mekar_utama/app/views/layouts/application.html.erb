@@ -2,10 +2,9 @@
 <html>
 <head>
   <title>MekarUtama</title>
-  <%= stylesheet_link_tag "light/light.css", "nivo-slider.css", "application",
-                          "jquery.mCustomScrollbar" %>
+  <%= stylesheet_link_tag "light/light.css", "nivo-slider.css", "application" %>
   <%= javascript_include_tag "jquery-1.7.1.min.js", "application.js", 
-                             "jquery.nivo.slider.js", "jquery.mCustomScrollbar",
+                             "jquery.nivo.slider.js",
                              "jquery.easing.1.3" %>
   <%= yield :javascript_includes %>
   <script type="text/javascript">
@@ -21,52 +20,56 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <div class="title">
-    <%= image_tag "logo.png" %>
-  </div>
-  <div class="container">
-    <div class="banner">
-      <div id="wrapper">
-        <div class="slider-wrapper theme-light">
-          <div id="slider" class="nivoSlider">
-            <% (1..4).each do |x| %>
-              <%= image_tag "nbanner_#{x}.jpg" %>
-            <% end %>
-            <%# @banners.each do |banner| %>
-              <%#= image_tag banner.banner_image.url(:big) %>
-            <%# end %>
-          </div>
-        </div>
+  <div id="container">
+    <div class="header">
+      <div class="logo">
+        <%= link_to (image_tag "logo.png"), root_path %>
       </div>
-    </div>
-    <div class="main-content">
+      <div class="h_contact_us_text">
+        <a href="ymsgr:SendIM?mekar_utama1">
+          <img border=0 src="http://opi.yahoo.com/online?u=jerome_107&m=g&t=1" />
+        </a>
+        <a href="ymsgr:SendIM?vr2praise">
+          <img border=0 src="http://opi.yahoo.com/online?u=jerome_107&m=g&t=1" />
+        </a>
+      </div>
       <div id="nav-menu">
-        <ul class='down-menu'>
-          <span class='menu-border'><%= link_to raw("<li>Home</li>"),root_path  %></span>
-          <span class='menu-border'>
-              <li class='menu-product' style="cursor:pointer">
-                <p>Products</p>
-                <span style='display:none' class='sub-menu'>
-                  <%= link_to raw("<p class='subtext'>Pencil</p>"), products_path("Pencil") %>
-                  <%= link_to raw("<p class='subtext'>Brodier</p>"), products_path("Embroidery") %>
-                </span>
+        <ul class="first">
+          <li class="first-child"><%= link_to "Home", root_path %></li>
+          <li id="list-product">
+            <span>Products</span>
+            <%#= link_to "Products", root_path, :id => "" %>
+            <ul id="parent-list-product">
+              <li class="first-child sub-menu">
+                <%= link_to "Pencil", products_path("Pencil") %>
               </li>
-          </span>
-          <span class='menu-border'><%= link_to raw("<li>News</li>"),news_path %></span>
-          <span class='menu-border'><%= link_to raw("<li>About Us</li>"),
-                      about_us_path %></span>
-          <span class='menu-border'>
-            <%= link_to raw("<li class='border-right'>Contact Us</li>"),
-                      contact_us_path %>
-          </span>
+              <li class="first-child sub-menu">
+                <%= link_to "Embroidery", products_path("Embroidery") %>
+              </li>
+            </ul>
+          </li>
+          <li><%= link_to "About Us", about_us_path %></li>
+          <li><%= link_to "Our Client", clients_path %></li>
+          <li><%= link_to "Contact Us", contact_us_path %></li>
         </ul>
       </div>
-      <%= yield %>
     </div>
-  </div>
-  <div class="footer">
-    Copyright © 2014, mekar-utama.com - all rights reserved
+    <div class="content">
+        <%= yield %>
+    <div class="clear"></div>
+    </div>
+    <div class="footer">
+      <div class="copyright">Copyright © 2014, mekar-utama.com - all rights reserved</div>
+      <div class="footer-menu">
+        <ul>
+          <li><%= link_to "home", root_path %></li>
+          <li><%= link_to "product", products_path("Pencil") %></li>
+          <li><%= link_to "about us", about_us_path %></li>
+          <li><%= link_to "clients", clients_path %></li>
+          <li class="no-border"><%= link_to "contact us", contact_us_path %></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </body>
 </html>

@@ -1,11 +1,11 @@
 class ProductImage < ActiveRecord::Base
   attr_accessor :set_primary_image
-  attr_accessible :product_image, :product_id, :is_primary
+  attr_accessible :product_image, :product_id, :is_primary, :is_best_seller
   belongs_to :product
 
-  has_attached_file :product_image, :styles => { :thumb => "100x100",
-                                                 :medium => "200x200",
-                                                 :large => "320x320" }
+  has_attached_file :product_image, :styles => { :thumb => "125x125",
+                                                 :medium => "300x300",
+                                                 :large => "600x600" }
   validates_attachment_presence :product_image
   after_destroy :set_primary_image
   scope :primary, :conditions => "is_primary = 1"

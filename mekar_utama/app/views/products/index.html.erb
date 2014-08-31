@@ -1,18 +1,19 @@
 <div class="inner-content">
   <div class="inner-content-title">Products <%= @category.name.titleize %></div>
-  <div class="inner-content-info">
-    <% @products.each do |product| %>
-    <div class="product-box">
-      <div class="product-image">
-        <%= link_to (image_tag product.primary_image.product_image.url(:medium),
-                               :size => "160x100"),
-                     product_path(:name => @category.name, :id => product.id) %>
+  <div class="inner-content-info" style="width: 900px;">
+    <% @products.each_with_index do |product, x| %>
+      <% margin = 'no-margin' if (x+1)%3 == 0 %>
+    <div class="product-box <%= margin %>">
+        <div class="product-image">
+          <%= link_to (image_tag product.primary_image.product_image.url(:medium),
+                                 :size => "160x100"),
+                       product_path(:name => @category.name, :id => product.id) %>
+        </div>
+        <div class="product-info">
+          <%= link_to product.name,
+              product_path(:name => @category.name, :id => product.id)%>
+        </div>
       </div>
-      <div class="product-info">
-        <%= link_to product.name,
-            product_path(:name => @category.name, :id => product.id)%>
-      </div>
-    </div>
     <% end %>
   </div>
   <div class="paginate">

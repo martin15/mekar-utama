@@ -20,19 +20,46 @@ $(document).ready(function(){
 	});
 
 	//When mouse rolls over
-	$("li.menu-product").mouseover(function(){
-		$("span.sub-menu").show().animate({height:'70px'},{queue:false, duration:600, easing: 'easeOutBounce'})
-	});
+	$("li#list-product").mouseover(function(){
+    $("li#list-product").css("background", "linear-gradient(to bottom, #332391 0%, #3a2a9a 21%, #3f2fa7 27%,              #4133b1 41%, #442ec9 71%, #553afb 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)");
+		//$("ul#parent-list-product").show().animate({queue:false, duration:400, easing: 'easeOutBounce'})
+		$("ul#parent-list-product").fadeIn('slow');
+	  //alert("aaa");
+  });
 
 	//When mouse is removed
-	$("li.menu-product").mouseleave(function(){
-		$("span.sub-menu").stop().animate(
-      {height:'20px'},{queue:false, duration:600, easing: 'easeOutBounce'//,
-      //complete: function() {$("span.sub-menu").hide()}
-      }
-    )
-		$("span.sub-menu").hide( "fast" );
+	$("li#list-product").mouseleave(function(){
+//		$("ul#parent-list-product").stop().animate(
+//      {queue:false, duration:600, easing: 'easeInBack'//,
+//      //complete: function() {$("span.sub-menu").hide()}
+//      }
+//    )
+		$("ul#parent-list-product").fadeOut(500);
+    setTimeout(function () {
+        $("li#list-product").css("background", "linear-gradient(to bottom, #ff908a 0%, #f65c54 27%, #dd281c 70%, #dc261c 80%,              #db241c 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)");
+    }, 200);
+    //$("li#list-product").delay(800).css("background", "#linear-gradient(to bottom, #9aff72 0%, #9afd62 27%, #9aed52 70%, #9add42 80%, #9acd32 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)")
 	});
+
 
 });
 
+
+function is_best_seller_picture(name, p_id, i_id){
+  $("#loader_"+name).show();
+  if($("#"+name).is(':checked')){
+    var bs = true;
+  }else{
+    var bs = false;
+  }
+  $.ajax({
+    type: "GET",
+    url:    "/admin/products/"+p_id+"/product_images/"+i_id+"/set_best_seller", // should be mapped in routes.rb
+    data: {is_best_seller: bs},
+    datatype:"html", // check more option
+    success: function(data) {
+      $("#loader_"+name).hide();
+    },
+    async:   true
+  });
+}
