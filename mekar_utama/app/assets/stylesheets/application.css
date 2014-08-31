@@ -505,7 +505,10 @@ body {
   float: left;
 }
 
-
+#about-us ul{
+  list-style: disc outside none;
+  margin-bottom: 10px;
+}
 
 
 
