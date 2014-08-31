@@ -403,6 +403,10 @@ body {
   margin-top: 20px;
 }
 
+.contact-right{
+  width: 410px!important;
+}
+
 .company-information{
   float: left;
   width: 420px;
@@ -681,12 +685,13 @@ body {
 }
 
 #error_explanation, #errorExplanation {
-  width: 500px;
+  width: 375px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 30px;
   background-color: #f0f0f0;
+  float: left;
 }
 
 #error_explanation h2, #errorExplanation h2 {

@@ -7,18 +7,22 @@ class ContactUsController < ApplicationController
   end
 
   def create
-      @contact_us = ContactUs.new(params[:contact_us])
-      if true
-        if true#@contact_us.save
-          flash[:notice] = "Your question is already sent!"
-          redirect_to contact_us_path
-        else
-          flash[:error] = "Your question is failed to sent!<br />Please fill all field first"
-          render :action => :new
-        end
+    @contact_us = ContactUs.new(params[:contact_us])
+    @contact_us_info = @about_us = Setting.find_by_name(:contact_us)
+    if simple_captcha_valid?
+      if @contact_us.save
+        flash[:notice] = "Your question is already sent!"
+        #ContactUsMailer.contact_us_mail(@contact_us, email).deliver
+        ContactUsMailer.contact_us_mail_for_admin(@contact_us).deliver
+        #ContactUsMailer.contact_us_confirmation(@contact_us).deliver
+        redirect_to contact_us_path
       else
-        flash[:error] = "Fill with the valid recaptcha "
+        flash[:error] = "Your question is failed to sent!<br />Please fill all field first"
         render :action => :new
       end
+    else
+      flash[:error] = "Fill with the valid recaptcha "
+      render :action => :new
+    end
   end
 end

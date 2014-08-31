@@ -1,5 +1,5 @@
 class ContactUsMailer < ActionMailer::Base
-  default :from => "no-replay@gardenice-pvj.com"
+  default :from => "no-replay@mekar-utama.com"
 
   def contact_us_mail_for_admin(contact)
     @contact = contact
