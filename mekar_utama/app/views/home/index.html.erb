@@ -11,7 +11,7 @@
       fx : 'mosaicSpiral',
       loader	: 'none',
       navigation	: false,
-      height: '318px',
+      height: '340px',
       pagination			: true,
       playPause: false,
       imagePath: "assets"
@@ -31,30 +31,39 @@
 
 <div class="description">
   <div class="description-box red">
-    <div class="desc-title dark-red">
-      Pensil Sticker
-    </div>
-    <div class="desc-content">
-      Pensil Sticker Pensil Sticker Pensil Sticker Pensil Sticker
-    </div>
+    <div class="desc-title dark-red"><%= @red_info.name.titleize %></div>
+    <div class="desc-content"><%= @red_info.content %></div>
   </div>
-  <div class="description-box blue">
-    <div class="desc-title dark-blue">
-      Pensil Graphit
-    </div>
-    <div class="desc-content">
-      Pensil Graphit Pensil Graphit Pensil Graphit Pensil Graphit
-    </div>
+  <div class="description-box no-margin blue">
+    <div class="desc-title dark-blue"><%= @blue_info.name.titleize %></div>
+    <div class="desc-content"><%= @blue_info.content %></div>
   </div>
-  <div class="description-box no-margin green">
-    <div class="desc-title dark-green">
-      Pensil Sablon
-    </div>
-    <div class="desc-content">
-      Pensil Sablon Pensil Sablon Pensil Sablon Pensil Sablon
-    </div>
-  </div>
+  <%#*<div class="description-box no-margin green">%>
+    <%#*<div class="desc-title dark-green">%>
+      <%#*Pensil Sablon%>
+    <%#*</div>%>
+    <%#*<div class="desc-content">%>
+      <%#*Pensil Sablon Pensil Sablon Pensil Sablon Pensil Sablon%>
+    <%#*</div>%>
+  <%#*</div>%>
 </div>
+
+<% unless @latest_news.nil? %>
+  <div class="home-news">
+    <h4>News</h4>
+    <% @latest_news.each_with_index do |news, x| %>
+      <% no_m = x == 1 ? 'no-margin' : '' %>
+    <div class="home-news-box <%= no_m %>">
+        <div class="home-news-title"><%= news.title %></div>
+        <div class="home-news-date">
+          <i>Uploaded at : </i><%= news.updated_at.strftime("%d %B %Y") %>
+        </div>
+        <div class="home-news-content"><%= raw(short_desc(news.content, 300)) %></div>
+        <span style="float:right"><%= link_to "Read more >>", show_news_path(news.id)%></span>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 
 <div class="best-seller">
   <h4>Best Seller</h4>
@@ -67,7 +76,8 @@
           <%= image_tag best_seller.product_image.url(:medium) %>
         </div>
         <div class="product-info">
-          <%= best_seller.product.name %>
+          <%#= best_seller.product.name %>
+          <%= best_seller.note %>
         </div>
       </div>
     <% end %>

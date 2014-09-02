@@ -1,6 +1,6 @@
 class ProductImage < ActiveRecord::Base
   attr_accessor :set_primary_image
-  attr_accessible :product_image, :product_id, :is_primary, :is_best_seller
+  attr_accessible :product_image, :product_id, :is_primary, :is_best_seller, :note
   belongs_to :product
 
   has_attached_file :product_image, :styles => { :thumb => "125x125",

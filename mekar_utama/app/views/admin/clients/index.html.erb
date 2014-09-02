@@ -20,6 +20,9 @@
                                 :confirm => "Are you sure?", :method => :delete %>
         </div>
       </div>
-    <% end %> 
+    <% end %>
+    <div class="paginate"><%= will_paginate @clients, :link_separator => " | ",
+                                 :previous_label => "&laquo; previous",
+                                 :next_label => "next &raquo;" %></div>
   </div>
 </div>

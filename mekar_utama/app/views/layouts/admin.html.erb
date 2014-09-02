@@ -15,11 +15,12 @@
       </div>
       <div id="nav-menu">
         <ul class="first admin-nav-menu">
-          <li class="first-child"><%= link_to "Home", root_path %></li>
+          <li class="first-child"><%= link_to "Home", admin_path %></li>
           <li><%= link_to "Products", admin_products_path %></li>
+          <li><%= link_to "News", admin_news_index_path %></li>
           <li><%= link_to "About Us", admin_edit_setting_path("about_us") %></li>
           <li><%= link_to "Banners", admin_banners_path %></li>
-          <li><%= link_to "CLients", admin_clients_path %></li>
+          <li><%= link_to "Clients", admin_clients_path %></li>
           <li><%= link_to "Contact Us", admin_edit_setting_path("contact_us") %></li>
         </ul>
       </div>

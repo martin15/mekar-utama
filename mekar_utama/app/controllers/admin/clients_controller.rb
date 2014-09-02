@@ -2,9 +2,9 @@ class Admin::ClientsController < Admin::ApplicationController
   before_filter :find_client, :only => [:destroy, :edit, :update]
 
   def index
-    @clients = Client.paginate(:page => params[:page], :per_page => 5,
+    @clients = Client.paginate(:page => params[:page], :per_page => 10,
                                          :order => "created_at DESC" )
-    @no = params[:page].to_i * 5
+    @no = params[:page].to_i * 10
   end
 
   def new

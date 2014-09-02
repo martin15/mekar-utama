@@ -1,5 +1,5 @@
 <div class="inner-content">
-  <div class="inner-content-title">Products <%= @category.name.titleize %></div>
+  <div class="inner-content-title"><%= @category.name.titleize %> Products</div>
   <div class="inner-content-info" style="width: 900px;">
     <% @products.each_with_index do |product, x| %>
       <% margin = 'no-margin' if (x+1)%3 == 0 %>
@@ -9,8 +9,8 @@
                                  :size => "160x100"),
                        product_path(:name => @category.name, :id => product.id) %>
         </div>
-        <div class="product-info">
-          <%= link_to product.name,
+        <div class="product-info" style="font-size:21px;">
+          <%= link_to product.name.titleize,
               product_path(:name => @category.name, :id => product.id)%>
         </div>
       </div>

@@ -41,7 +41,7 @@
 }
 
 .with-pic{
-  height: 130px;
+  height: 150px;
 }
 
 .with-banner-pic{
@@ -58,7 +58,7 @@
   text-align: left;
 }
 
-.admin-row .no, .admin-row .image, .admin-row .news-title, .admin-row .content,
+.admin-row .no, .admin-row .image, .admin-row .news-title, .admin-row .news-content_a,
 .admin-row .action, .admin-row .product-image, .admin-row .product-name,
 .admin-row .client-name, .admin-row .banner-image,
 .admin-row .product-price, .admin-row .product-category, .admin-row .product-action {
@@ -89,8 +89,8 @@
   width: 200px;
 }
 
-.admin-row .content, .admin-row .client-name{
-  width: 300px;
+.admin-row .news-content_a, .admin-row .client-name{
+  width: 300px!important;
 }
 
 .admin-row .action{
@@ -154,7 +154,7 @@
 }
 
 .admin-nav-menu li{
-  width: 149px!important;
+  width: 127px!important;
 }
 
 .best-seller{
@@ -166,4 +166,26 @@
 
 .best-seller span{
   margin: -5px 0 0 5px!important;
+}
+
+.info-red-box, .info-blue-box{
+  float: left;
+  width: 420px;
+  margin-top: 20px;
+}
+
+.info-red-box{
+  margin-right: 20px;
+}
+
+.info-red-box-title{
+  float: left;
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.info-red-box-field{
+  float: left;
+  width: 270px;
+  margin-bottom: 20px;
 }
