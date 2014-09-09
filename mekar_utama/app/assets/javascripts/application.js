@@ -23,7 +23,7 @@ $(document).ready(function(){
 	$("li#list-product").mouseover(function(){
     $("li#list-product").css("background", "linear-gradient(to bottom, #332391 0%, #3a2a9a 21%, #3f2fa7 27%,              #4133b1 41%, #442ec9 71%, #553afb 100%) repeat scroll 0 0 rgba(0, 0, 0, 0)");
 		//$("ul#parent-list-product").show().animate({queue:false, duration:400, easing: 'easeOutBounce'})
-		$("ul#parent-list-product").fadeIn('slow');
+		$("ul#parent-list-product").fadeIn(1);
 	  //alert("aaa");
   });
 

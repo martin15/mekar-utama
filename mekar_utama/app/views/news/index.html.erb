@@ -3,17 +3,22 @@
   <div class="inner-content-info">
     <% @all_news.each do |news| %>
       <div class="news">
-        <div class="news-image">
-          <%= link_to (image_tag "3.jpg"), show_news_path(news.id) %>
-        </div>
-        <div class="news-content">
-          <div class="news-title">
+        <% if news.news_image.file?  %>
+          <% width = "width:650px!important" %>
+          <div class="news-image">
+            <%= link_to (image_tag news.news_image.url(:thumb)), show_news_path(news.id) %>
+          </div>
+        <% end %>
+        <div class="news-content" style="<%= width %>">
+          <div class="news-title" style="<%= width %>">
             <%= link_to news.title, show_news_path(news.id) %>
           </div>
-          <div class="news-date">
+          <div class="news-date" style="<%= width %>">
             <i>Uploaded at</i><%= news.updated_at.strftime("%d %B %Y") %>
           </div>
-          <div class="news-short-content"><%= raw(short_desc(news.content, 400)) %></div>
+          <div class="news-short-content" style="<%= width %>">
+            <%= raw(short_desc(news.content, 400)) %>
+          </div>
           <span><%= link_to "Read more >>", show_news_path(news.id) %></span>
         </div>
       </div>
