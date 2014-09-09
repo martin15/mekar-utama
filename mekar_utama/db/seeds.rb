@@ -10,6 +10,11 @@ username = User.find_or_create_by_email(:email => "martin.me15@yahoo.com",
                                         :password_confirmation => "1q2w3e4r5t")
 puts username.inspect
 
+username2 = User.find_or_create_by_email(:email => "mekar_utama1@yahoo.com",
+                                        :password => "1q2w3e4r5t",
+                                        :password_confirmation => "1q2w3e4r5t")
+puts username2.inspect
+
 pencil =  Category.find_or_create_by_name(:name => "Pencil")
 puts pencil.inspect
 
