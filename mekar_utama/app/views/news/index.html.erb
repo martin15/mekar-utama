@@ -14,7 +14,7 @@
             <%= link_to news.title, show_news_path(news.id) %>
           </div>
           <div class="news-date" style="<%= width %>">
-            <i>Uploaded at</i><%= news.updated_at.strftime("%d %B %Y") %>
+            <i>Uploaded at : </i><%= news.updated_at.strftime("%d %B %Y") %>
           </div>
           <div class="news-short-content" style="<%= width %>">
             <%= raw(short_desc(news.content, 400)) %>
