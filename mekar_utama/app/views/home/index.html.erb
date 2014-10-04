@@ -54,12 +54,21 @@
     <% @latest_news.each_with_index do |news, x| %>
       <% no_m = x == 1 ? 'no-margin' : '' %>
     <div class="home-news-box <%= no_m %>">
-        <div class="home-news-title"><%= news.title %></div>
-        <div class="home-news-date">
-          <i>Uploaded at : </i><%= news.updated_at.strftime("%d %B %Y") %>
+        <% if news.news_image.file?  %>
+          <div class="home-news-image">
+            <%= image_tag news.news_image.url(:thumb) %>
+          </div>
+        <% end %>
+        <div style="position:relative">
+          <div class="home-news-title"><%= link_to news.title, show_news_path(news.id) %></div>
+          <div class="home-news-date">
+            <i>Uploaded at : </i><%= news.updated_at.strftime("%d %B %Y") %>
+          </div>
+          <div class="home-news-content"><%= raw(short_desc(news.content, 300)) %></div>
+          <span style="float:right;margin-top: 10px;">
+            <%= link_to "Read more >>", show_news_path(news.id)%>
+          </span>
         </div>
-        <div class="home-news-content"><%= raw(short_desc(news.content, 300)) %></div>
-        <span style="float:right"><%= link_to "Read more >>", show_news_path(news.id)%></span>
       </div>
     <% end %>
   </div>
