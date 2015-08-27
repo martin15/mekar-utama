@@ -13,11 +13,7 @@ class Product < ActiveRecord::Base
 
   def primary_image(size)
     img = product_images.primary.first
-    if img.nil?
-      set_primary_image
-      img = product_images.primary.first
-      return "undefined" if img.nil?
-    end
+    return "undefined" if img.nil?
     img.product_image.url(size.to_sym)
   end
 
