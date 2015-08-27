@@ -16,7 +16,7 @@ class ProductImage < ActiveRecord::Base
 
   def change_primary_image
     product = self.product
-    old_primary_image = product.primary_image
+    old_primary_image = product.product_images.primary.first
     unless old_primary_image.nil?
       return false unless old_primary_image.unset_primary
     end
@@ -26,7 +26,7 @@ class ProductImage < ActiveRecord::Base
 
   def set_primary_image
     product = self.product
-    return unless product.primary_image.nil?
+    return unless product.product_images.primary.first.nil?
     new_pimary_image = product.product_images.first
     unless new_pimary_image.nil?
       new_pimary_image.update_attribute :is_primary, true
