@@ -11,8 +11,14 @@ class Product < ActiveRecord::Base
 #                    :length => {:minimum => 1, :maximum => 254},
 #                    :numericality => true
 
-  def primary_image
-    product_images.primary.first
+  def primary_image(size)
+    img = product_images.primary.first
+    if img.nil?
+      set_primary_image
+      img = product_images.primary.first
+      return "undefined" if img.nil?
+    end
+    img.product_image.url(size.to_key)
   end
 
 end

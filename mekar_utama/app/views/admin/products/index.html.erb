@@ -15,7 +15,7 @@
       <div class="admin-row with-pic">
         <div class="no"><%= x+1 %></div>
         <div class="product-image">
-          <%= image_tag product.primary_image.product_image.url(:thumb) %>
+          <%= image_tag product.primary_image("thumb") %>
         </div>
         <div class="product-name"><%= product.name %></div>
         <div class="product-price">

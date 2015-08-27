@@ -6,7 +6,7 @@
                   :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
       <div style="height: 225px;">
-        <%= image_tag @product.primary_image.product_image.url(:medium) %>
+        <%= image_tag @product.primary_image("medium") %>
       </div><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
       <div class="field">
