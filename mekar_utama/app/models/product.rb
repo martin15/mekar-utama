@@ -18,7 +18,7 @@ class Product < ActiveRecord::Base
       img = product_images.primary.first
       return "undefined" if img.nil?
     end
-    img.product_image.url(size.to_key)
+    img.product_image.url(size.to_sym)
   end
 
 end
