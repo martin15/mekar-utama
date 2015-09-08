@@ -8,6 +8,7 @@ class ProductImage < ActiveRecord::Base
                                                  :large => "600x600" }
   validates_attachment_presence :product_image
   after_destroy :set_primary_image
+  after_create :set_primary_image
   scope :primary, :conditions => "is_primary = 1"
 
   def is_primary?
@@ -18,7 +19,8 @@ class ProductImage < ActiveRecord::Base
     product = self.product
     old_primary_image = product.product_images.primary.first
     unless old_primary_image.nil?
-      return false unless old_primary_image.unset_primary
+      #return false unless old_primary_image.unset_primary
+      product.unset_primary
     end
     self.set_primary
     return self.save

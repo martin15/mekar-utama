@@ -17,4 +17,13 @@ class Product < ActiveRecord::Base
     img.product_image.url(size.to_sym)
   end
 
+  def unset_primary
+    product_images.each do |image|
+      if image.is_primary?
+        image.is_primary = false
+        image.save!
+      end
+    end
+  end
+
 end
