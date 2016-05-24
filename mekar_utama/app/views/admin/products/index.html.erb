@@ -21,7 +21,7 @@
         <div class="product-price">
           <%= number_to_currency(product.price, :unit => "Rp. ", :separator => ",") %>
         </div>
-        <div class="product-category"><%= product.category.name %></div>
+        <div class="product-category"><%= product.categories.map(&:name).join(", ") %></div>
         <div class="product-action">
           <%= link_to 'Add Image', admin_product_path(product.id) %>&nbsp;|&nbsp;
           <%= link_to 'Edit', edit_admin_product_path(product.id) %>&nbsp;|&nbsp;

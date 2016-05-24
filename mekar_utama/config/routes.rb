@@ -2,6 +2,7 @@ MekarUtama::Application.routes.draw do
   
   mount Ckeditor::Engine => '/ckeditor'
 
+  get "new-home" => "new_home#index"
   get "about_us" => "about_us#index"
   get "clients" => "clients#index"
   get "products/:name" => "products#index", :as => "products"
@@ -30,6 +31,7 @@ MekarUtama::Application.routes.draw do
         end
       end
     end
+    resources :categories
     get "settings/:name/edit" => "settings#edit", :as => "edit_setting"
     put "settings/:name" => "settings#update", :as => "update_setting"
 

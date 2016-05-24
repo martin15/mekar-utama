@@ -2,9 +2,9 @@ class Admin::ProductsController < Admin::ApplicationController
   before_filter :find_product, :only => [:show, :destroy, :edit, :update]
 
   def index
-    @products = Product.paginate(:page => params[:page], :per_page => 5,
+    @products = Product.paginate(:page => params[:page], :per_page => 20,
                                          :order => "created_at DESC" )
-    @no = params[:page].to_i * 5
+    @no = params[:page].to_i * 20
   end
 
   def new
@@ -16,6 +16,7 @@ class Admin::ProductsController < Admin::ApplicationController
   def create
     @product = Product.new(params[:product])
     if @product.save
+      update_categories
       flash[:notice] = "Product successfully created"
       redirect_to admin_products_path
     else
@@ -31,15 +32,17 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def edit
-    @category_list = Category.category_list
+    @product_category = @product.categories
   end
 
   def update
+    puts params.inspect
     if @product.update_attributes(params[:product])
+      update_categories
       flash[:notice] = "Product successfully updated"
       redirect_to admin_products_path
     else
-      @category_list = Category.category_list
+      @product_category = @product.categories
       flash[:error] = "Product failed to update"
       render :action => "edit"
     end
@@ -58,5 +61,11 @@ class Admin::ProductsController < Admin::ApplicationController
         flash[:error] = "Cannot find the Product with id '#{params[:id]}'"
         redirect_to admin_products_path
       end
+    end
+
+    def update_categories
+      @categories = Category.where("id in (?)", params[:product][:category_id])
+      @product.categories = @categories
+      @product.save
     end
 end

@@ -1,3 +1,20 @@
+#admin-fix-menu{
+  height: 130px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: fixed;
+  background-color: whitesmoke;
+  z-index: 99999;
+  padding-top: 20px;
+}
+
+
+#admin-fix-menu .admin-logo {
+  float: left;
+  width: 425px;
+}
+
+
 .admin-body {
   font: 12px Cabin-Regular, Verdana, arial, sans-serif;
   background: #000!important;
@@ -17,27 +34,33 @@
 }
 
 .admin-main-content, .admin-inner-content{
-  width: 900px;
-  margin: 10px 20px 0 20px;
-  float: left;
+    background-color: #ddd67b;
+    color: #000;
+    width: 100%;
 }
 
 .admin-inner-content-title{
-  width: 760px;
-  height: 50px;
-  float: left;
+    margin: 0 auto;
+    height: 60px;
+    width: 900px;
+    padding-top: 20px;
+/*  float: left;*/
   font-size: 40px;
 }
 
 .admin-inner-content-info{
-  width: 900px;
-  float: left;
+    margin: 0 auto;
+    min-height: 350px;
+    width: 900px;
+/*  float: left;*/
   margin-top: 10px;
+  padding-bottom: 30px;
 }
 
 .admin-row{
-  float: left;
+/*  float: left;*/
   width: 900px;
+  min-height: 40px;
 }
 
 .with-pic{
@@ -45,7 +68,7 @@
 }
 
 .with-banner-pic{
-  height: 190px;
+  height: 240px;
 }
 
 .border {
@@ -61,7 +84,8 @@
 .admin-row .no, .admin-row .image, .admin-row .news-title, .admin-row .news-content_a,
 .admin-row .action, .admin-row .product-image, .admin-row .product-name,
 .admin-row .client-name, .admin-row .banner-image,
-.admin-row .product-price, .admin-row .product-category, .admin-row .product-action {
+.admin-row .product-price, .admin-row .product-category, .admin-row .product-action,
+.admin-row .category-name, .admin-row .parent-name, .admin-row .client-image{
   text-align: center;
   float: left;
   padding:5px;
@@ -76,8 +100,20 @@
   width: 500px;
 }
 
-.admin-row .image{
+.admin-row .banner-image img, .admin-banner-edit img{
+  height: 200px;
+}
+
+.admin-row .image, .admin-row .client-image{
   width: 200px;
+}
+
+.admin-row .image img{
+  height: 100px;
+}
+
+.client-image img{
+  width: 130px;
 }
 
 .admin-row .news-title, .admin-row .product-image, .admin-row .product-price,
@@ -85,7 +121,11 @@
   width: 150px;
 }
 
-.admin-row .product-name{
+.admin-news img{
+  height: 200px;
+}
+
+.admin-row .product-name, .admin-row .parent-name, .admin-row .category-name{
   width: 200px;
 }
 
@@ -98,7 +138,7 @@
 }
 
 .admin-inner-content-info .field{
-  float: left;
+/*  float: left;*/
   width: 700px;
   height: 23px;
   margin-bottom: 7px;
@@ -128,24 +168,29 @@
 }
 
 .admin-product-images{
-  width: 210px;
-  height: 230px;
+  width: 275px;
+  height: 300px;
   float: left;
-  margin: 0 13px 20px 0;
-  border: 1px solid #ECC352;
+  margin: 0 25px 20px 0;
+/*  border: 1px solid #ECC352;*/
+  background-color: #fff;
 }
 
 .admin-product-images .pic{
-  width: 200px;
-  height: 160px;
-  padding: 5px;
+  width: 235px;
+  height: 170px;
+  padding: 20px;
   float: left;
 }
 
+.admin-product-images .pic img{
+  width: 230px;
+}
+
 .admin-product-images .action{
-  width: 200px;
+  width: 235px;
   height: 55px;
-  padding: 5px;
+  padding: 20px;
   float: left;
 }
 
@@ -188,4 +233,9 @@
   float: left;
   width: 270px;
   margin-bottom: 20px;
+}
+
+.category_list{
+  width:50%;
+  padding: 10px;
 }

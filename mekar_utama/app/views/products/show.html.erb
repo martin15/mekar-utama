@@ -29,22 +29,33 @@
   });
 </script>
 
-<div class="inner-content">
-  <div class="inner-content-title">Product Detail</div>
-  <div class="inner-content-info" id="content">
-    <%#*<div class="product-detail-image-box">%>
-      <%#*&nbsp;%>
-    <%#*</div>%>
-    <div class="product-detail-image-box">
-      <ul id="pikame" class="jcarousel-skin-pika">
-        <% @product_images.each do |image| %>
-          <li><%= image_tag image.product_image.url(:large) %></li>
-        <% end %>
-      </ul>
+<div id="sub-header-container">
+  <div class="sub-header">
+    <div class="title">Product Detail</div>
+  <div class="clear"></div>
+  </div>
+</div>
+
+<div id="content-conatiner">
+  <div class="content">
+    <div class="inner-content">
+      <div class="inner-content-info" id="content">
+        <%#*<div class="product-detail-image-box">%>
+          <%#*&nbsp;%>
+        <%#*</div>%>
+        <div class="product-detail-image-box">
+          <ul id="pikame" class="jcarousel-skin-pika">
+            <% @product_images.each do |image| %>
+              <li><%= image_tag image.product_image.url(:large) %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="product-detail-info">
+          <div class="product-detail-product-name"><%= @product.name %></div>
+          <%= raw @product.description %>
+        </div>
+      </div>
     </div>
-    <div class="product-detail-info">
-      <div class="product-detail-product-name"><%= @product.name %></div>
-      <%= raw @product.description %>
-    </div>
+    <div class="clear"></div>
   </div>
 </div>

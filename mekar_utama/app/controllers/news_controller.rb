@@ -6,7 +6,7 @@ class NewsController < ApplicationController
   end
 
   def show
-    @news = News.find_by_id(params[:id])
+    @news = News.find_by_permalink(params[:id])
     if @news.nil?
       flash[:error] = "Cannot find the News with id '#{params[:id]}'"
       redirect_to news_path

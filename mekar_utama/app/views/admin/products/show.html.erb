@@ -26,7 +26,7 @@
     <% @product_images.each_with_index do |product_image, x| %>
       <div class="admin-product-images">
         <div class="pic">
-          <%= image_tag product_image.product_image.url(:medium), :size => "200x150" %>
+          <%= image_tag product_image.product_image.url(:medium) %>
         </div>
         <div class="action">
           <span><%= product_image.is_primary? ? "Is Primary" :

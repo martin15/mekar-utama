@@ -12,7 +12,7 @@
     <% @clients.each_with_index do |client, x| %>
       <div class="admin-row with-pic">
         <div class="no"><%= x+1 %></div>
-        <div class="image"><%= image_tag client.client_image.url(:thumb) %></div>
+        <div class=" client-image"><%= image_tag client.client_image.url(:thumb) %></div>
         <div class="client-name"><%= client.name %></div>
         <div class="action">
           <%= link_to 'Edit', edit_admin_client_path(client.id) %>&nbsp;|&nbsp;

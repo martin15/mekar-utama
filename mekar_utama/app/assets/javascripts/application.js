@@ -63,3 +63,19 @@ function is_best_seller_picture(name, p_id, i_id){
     async:   true
   });
 }
+
+
+function zoom_image(el){
+  alert($(this).parent().attr('class'))
+  $(this)
+    .css({
+        "display":"none"
+//      "transform": "scale(1.1)",
+//      "transition": "all 0.5s ease 0s"
+    });
+  $(this).find("div.product-info > a")
+    .css({
+      "color": "#f08364"
+    })
+}
+

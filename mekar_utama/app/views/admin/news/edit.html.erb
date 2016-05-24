@@ -5,7 +5,7 @@
     <%= form_for([:admin, @news], :url => admin_news_path,
                   :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
-      <div class="admin-category-testimonial" style="height: 225px;">
+      <div class="admin-news" style="height: 225px;">
         <%= image_tag @news.news_image.url(:medium) %>
       </div><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>

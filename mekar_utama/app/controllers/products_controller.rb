@@ -2,8 +2,15 @@ class ProductsController < ApplicationController
   before_filter :find_category, :only => [:index, :show]
 
   def index
-
-    @products = @category.products.paginate(:page => params[:page], :per_page => 6,
+    @child_categories =  @category.child_categories
+    puts @child_categories.inspect
+    puts @child_categories.select(:name).inspect
+    @products = Product.joins("left join categories_products as cp on cp.product_id = products.id").
+      where("cp.category_id in (?)", @child_categories.map(&:id)).uniq
+#    @child_categories.each do |cat|
+#      @products << cat.products
+#    end
+    @products = @products.paginate(:page => params[:page], :per_page => 21,
                                  :order => "created_at DESC" )
   end
 

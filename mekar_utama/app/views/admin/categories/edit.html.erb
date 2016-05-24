@@ -1,17 +1,14 @@
 <div class="admin-inner-content">
-  <div class="admin-inner-content-title">Edit Banner</div>
+  <div class="admin-inner-content-title">Edit Category</div>
   <div class="admin-inner-content-info">
     <%= raw msg_flash(flash) %>
-    <%= form_for([:admin, @banner], :url => admin_banner_path,
+    <%= form_for([:admin, @category], :url => admin_category_path,
                   :html => { :multipart => true, :method => :put }) do |f| %>
       <%= f.error_messages %>
-      <div class="admin-banner-edit" style="height: 225px;">
-        <%= image_tag @banner.banner_image.url(:medium) %>
-      </div><br /><br />
       <%= render :partial => 'form', :locals => { :f => f} %>
       <div class="field">
-        <%= f.submit 'Update Banner' %>&nbsp;&nbsp;
-        <%= link_to 'Back', admin_banners_path %>
+        <%= f.submit 'Update Category' %>&nbsp;&nbsp;
+        <%= link_to 'Back', admin_categories_path %>
       </div>
     <% end %>
     <div class="clear"></div>

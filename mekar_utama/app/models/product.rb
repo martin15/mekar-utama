@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
   attr_accessible :name, :description, :price, :code, :permalink, :category_id, :product_images_attributes
   has_permalink :name, :update => true
-  belongs_to :category
+
+  has_many :categories_products
+  has_many :categories, :through => :categories_products
+
   has_many :product_images, :dependent => :destroy
   accepts_nested_attributes_for :product_images, :allow_destroy => true
 

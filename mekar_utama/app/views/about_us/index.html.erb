@@ -1,25 +1,17 @@
-<%# content_for :javascript_includes do %>
-  <%#= javascript_include_tag  "jquery.bxslider" %>
-  <%#= stylesheet_link_tag  "jquery.bxslider" %>
-<%# end %>
+<div id="sub-header-container">
+  <div class="sub-header">
+    <div class="title">About Us</div>
+  <div class="clear"></div>
+  </div>
+</div>
 
-<%#*<script type="text/javascript">%>
-  <%#*(function($){%>
-    <%#*$(window).load(function(){%>
-        <%#*$("#content").mCustomScrollbar({%>
-          <%#*set_width:"100%",%>
-          <%#*scrollButtons:{%>
-          <%#*enable:true%>
-        <%#*},%>
-        <%#*theme:"light-2"%>
-      <%#*});%>
-    <%#*});%>
-  <%#*})(jQuery);%>
-<%#*</script>%>
-
-<div class="inner-content">
-  <div class="inner-content-title">About Us</div>
-  <div class="inner-content-info" id="about-us">
-    <%= raw @about_us.content %>
+<div id="content-conatiner">
+  <div class="content">
+    <div class="inner-content">
+      <div class="inner-content-info" id="about-us">
+        <%= raw @about_us.content %>
+      </div>
+    </div>
+  <div class="clear"></div>
   </div>
 </div>
