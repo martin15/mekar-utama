@@ -66,11 +66,11 @@
             <div class="product-image">
               <%= link_to (image_tag product.primary_image("medium"),
                                      :size => "160x100"),
-                           product_path(:name => @category.name, :id => product.id) %>
+                           product_path(:name => @category.name, :permalink => product.permalink) %>
             </div>
             <div class="product-info">
               <%= link_to product.name.titleize,
-                  product_path(:name => @category.name, :id => product.id)%>
+                  product_path(:name => @category.name, :permalink => product.permalink)%>
             </div>
           </div>
         <% end %>

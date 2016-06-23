@@ -6,7 +6,7 @@ MekarUtama::Application.routes.draw do
   get "about_us" => "about_us#index"
   get "clients" => "clients#index"
   get "products/:name" => "products#index", :as => "products"
-  get "products/:name/:id" => "products#show", :as => "product"
+  get "products/:name/:permalink" => "products#show", :as => "product"
   get "contact_us" => "contact_us#new", :as => "contact_us"
   post "contact_us" => "contact_us#create", :as => "contact_us"
   get "news" => "news#index", :as => "news"
