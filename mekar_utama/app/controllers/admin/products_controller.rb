@@ -11,6 +11,7 @@ class Admin::ProductsController < Admin::ApplicationController
     @product = Product.new
     @product.product_images.build
     @category_list = Category.category_list
+    @product_category = []
   end
 
   def create
@@ -21,6 +22,7 @@ class Admin::ProductsController < Admin::ApplicationController
       redirect_to admin_products_path
     else
       @category_list = Category.category_list
+      @product_category = params[:product][:category_id].map(&:to_i)
       flash[:error] = "Product failed to create"
       render :action => "new"
     end
@@ -32,7 +34,7 @@ class Admin::ProductsController < Admin::ApplicationController
   end
 
   def edit
-    @product_category = @product.categories
+    @product_category = @product.categories.map(&:id)
   end
 
   def update
@@ -42,7 +44,7 @@ class Admin::ProductsController < Admin::ApplicationController
       flash[:notice] = "Product successfully updated"
       redirect_to admin_products_path
     else
-      @product_category = @product.categories
+      @product_category = @product.categories.map(&:id)
       flash[:error] = "Product failed to update"
       render :action => "edit"
     end

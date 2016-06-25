@@ -29,11 +29,11 @@
     </div>
   <% end %>
 <% end %>
-<div class="field clear-margin">
+<div class="field clear-margin" style="width:900px;height:auto;">
   <div class="input-title left"><%= f.label :category_id, "Category * :" %></div>
-  <div class="input-box left">
+  <div class="input-box left" style="width:700px;">
     <% Category.child_categories.each do |cat| %>
-      <%= check_box_tag "product[category_id][]", cat.id, @product_category.map(&:id).include?(cat.id) %>&nbsp;
+      <%= check_box_tag "product[category_id][]", cat.id, @product_category.include?(cat.id) %>&nbsp;
       <%= cat.name %>&nbsp;&nbsp;&nbsp;
     <% end %>
     <%#= f.select :category_id, Category.child_categories.collect {|p| [ p.name, p.id ] } %>
