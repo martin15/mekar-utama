@@ -14,9 +14,15 @@
   <div class="input-title left"><%= f.label :code, "Code :" %></div>
   <div class="input-box left"><%= f.text_field :code %></div>
 </div>
-<div class="field clear-margin">
+<div class="field clear-margin" style="margin-bottom:0px">
   <div class="input-title left"><%= f.label :image, "Image * :" %></div>
   <div class="input-box left"><%= f.file_field :image %></div>
+</div>
+<div class="field clear-margin">
+  <div class="input-title left">&nbsp;</div>
+  <div class="input-box left small-font">
+    Input image with size 800x600 (width x height)
+  </div>
 </div>
 <!--
 <%# unless params[:action] == "edit" %>
