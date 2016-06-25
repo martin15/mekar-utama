@@ -32,6 +32,9 @@ MekarUtama::Application.routes.draw do
       end
     end
     resources :categories
+    resources :product_images, :only => [:index]
+    get "product_images/:id/new_product" => "product_images#new_product", :as => "product_images_new_product"
+    post "product_images/:id/create_product" => "product_images#create_product", :as => "product_images_create_product"
     get "settings/:name/edit" => "settings#edit", :as => "edit_setting"
     put "settings/:name" => "settings#update", :as => "update_setting"
 

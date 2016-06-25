@@ -27,9 +27,16 @@ puts about_us.inspect
 contact_us =  Setting.find_or_create_by_name(:name => "contact_us")
 puts contact_us.inspect
 
-#info_product_1 =  Setting.find_or_create_by_name(:name => "Pensil")
-#puts info_product_1.inspect
-#
-#info_product_2 =  Setting.find_or_create_by_name(:name => "Embroidery")
-#puts info_product_2.inspect
+info_product_1 =  Setting.find_or_create_by_name(:name => "Pensil")
+puts info_product_1.inspect
 
+info_product_2 =  Setting.find_or_create_by_name(:name => "Embroidery")
+puts info_product_2.inspect
+
+Product.all.each do |product|
+  if product.image_file_name.nil?
+    product.image = product.product_images.primary.first.product_image
+    puts product.image
+    product.save
+  end
+end

@@ -11,6 +11,14 @@ class ProductImage < ActiveRecord::Base
   after_create :set_primary_image
   scope :primary, :conditions => "is_primary = 1"
 
+  def self.with_product
+    self.where("have_product = 1")
+  end
+
+  def self.without_product
+    self.where("have_product = 0 or have_product is null")
+  end
+
   def is_primary?
     !!is_primary
   end
