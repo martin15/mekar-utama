@@ -67,16 +67,28 @@ MekarUtama::Application.configure do
       :exception_recipients => %w{martin.me15@yahoo.com}
   config.action_mailer.default_url_options = { :host => 'localhost:80' }
   config.action_mailer.delivery_method = :smtp
+#  config.action_mailer.perform_deliveries = true
+#  config.action_mailer.smtp_settings = {
+#    :authentication => :plain,
+#    :address => "smtp.mailgun.org",
+#    :port => 587,
+#    :domain => "sandbox1457.mailgun.org",
+#    :user_name => "postmaster@sandbox1457.mailgun.org",
+#    :password => "9yv7w5v115s2",
+#    :openssl_verify_mode  => 'none',
+#    :enable_starttls_auto => false
+#  }
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.mailer_sender = '"no-to-replay" <no-reply@mekar-utama.com>'
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => "sandbox1457.mailgun.org",
-    :user_name => "postmaster@sandbox1457.mailgun.org",
-    :password => "9yv7w5v115s2",
-    :openssl_verify_mode  => 'none',
-    :enable_starttls_auto => false
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "mekar-utama.com",
+    :user_name            => "notifier.email.global@gmail.com",
+    :password             => "1qazse4rfv",
+    :authentication       => :plain,
+    :enable_starttls_auto => true
   }
 
   # Log the query plan for queries taking more than this (works
